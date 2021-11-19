@@ -44,10 +44,12 @@ class AbstractCar:
         collisionPoint = mask.overlap(self.getCarMask(), offset)
         return collisionPoint
 
-    def resetGame(self):
+    def resetGame(self, levelNumber=False):
         self.xPos, self.yPos = self.START_POS
         self.angle = 270
         self.velocity = 0
+        if levelNumber:
+            self.angle = 0
 
     def drawCar(self):
         rotateImage(self.screenWindow, self.carImage, (self.xPos, self.yPos), self.angle)
@@ -131,11 +133,14 @@ class ComputerCar(AbstractCar):
         self.updatePathPoints()
         super().moveCar()
 
-    def resetGame(self):
-        super().resetGame()
+    def resetGame(self, levelNumber=False):
+        super().resetGame(levelNumber)
         self.currentPoint = 0
+        self.velocity = self.maxVelocity
+        if levelNumber:
+            self.angle = 0
 
     def nextLevel(self, level):
         self.resetGame()
-        self.velocity = self.maxVelocity  + (level - 1) * 0.2
+        #self.velocity = self.maxVelocity  + (level - 1) * 0.2
         self.currentPoint = 0

@@ -94,8 +94,8 @@ def selectCar(manageGame, playMode):
             selectedCars.append(scaleImage(allCars[computerCarIndex][0], 0.4))
             pygame.time.wait(250)
         if keys[pygame.K_RETURN] and len(selectedCars) == 2:
-            from LevelOne import startLevel1
-            startLevel1(manageGame, not playMode, selectedCars)
+            import LevelOne
+            LevelOne.startLevel1(manageGame, not playMode, selectedCars)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

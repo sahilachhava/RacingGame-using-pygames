@@ -1,4 +1,6 @@
 import pygame
+import os
+pygame.font.init()
 
 def scaleImage(image, factor):
     newSize = round(image.get_width() * factor), round(image.get_height() * factor)
@@ -12,6 +14,10 @@ def rotateImage(window, image, topLeft, angle):
 def getRotatedImage(image, angle):
     rotatedImage = pygame.transform.rotate(image, angle)
     return rotatedImage
+
+def setTextTopCenter(window, font, text):
+    render = font.render(text, 1, (255,255,255))
+    window.blit(render, (140,5))
 
 def setTextCenter(window, font, text):
     render = font.render(text, 1, (255,255,255))
@@ -33,9 +39,18 @@ def handleCollisions(window, font, manageGame, trackMask, finishMask, finishPos,
         else:
             manageGame.nextLevel()
             if not manageGame.gameFinished():
-                setTextCenter(window, font, f"Level Finished! Player 1 WON.")
+                if manageGame.level == 2:
+                    setTextTopCenter(window, font, f"Level Finished! Player 1 WON.")
+                else:
+                    setTextCenter(window, font, f"Level Finished! Player 1 WON.")
                 pygame.display.update()
                 pygame.time.wait(2500)
+            else:
+                setTextCenter(window, font, f"All Tracks Cleared!, GAME OVER")
+                pygame.display.update()
+                pygame.time.wait(3000)
+                pygame.quit()
+                os.system("python3 main.py")
             player1Car.resetGame()
             if multiplayerMode:
                 player2Car.resetGame()
@@ -51,20 +66,51 @@ def handleCollisions(window, font, manageGame, trackMask, finishMask, finishPos,
             else:
                 manageGame.nextLevel()
                 if not manageGame.gameFinished():
-                    setTextCenter(window, font, f"Level Finished! Player 2 WON.")
+                    if manageGame.level == 2:
+                        setTextTopCenter(window, font, f"Level Finished! Player 2 WON.")
+                    else:
+                        setTextCenter(window, font, f"Level Finished! Player 2 WON.")
                     pygame.display.update()
                     pygame.time.wait(2500)
+                else:
+                    setTextCenter(window, font, f"All Tracks Cleared!, GAME OVER")
+                    pygame.display.update()
+                    pygame.time.wait(3000)
+                    pygame.quit()
+                    os.system("python3 main.py")
                 player2Car.resetGame()
                 player1Car.resetGame()
     
     if not multiplayerMode:
         if computerCar.collide(finishMask, *finishPos) != None:
-            setTextCenter(window, font, f"Level Lost! Computer WON!")
+            if manageGame.level == 2:
+                setTextTopCenter(window, font, f"Level Lost! Computer WON!")
+            else:
+                setTextCenter(window, font, f"Level Lost! Computer WON!")
             pygame.display.update()
             pygame.time.wait(2000)
-            manageGame.resetGame()
-            player1Car.resetGame()
-            computerCar.resetGame()
+            if manageGame.level == 3:
+                computerCar.resetGame(levelNumber=True)
+                player1Car.resetGame(levelNumber=True)
+            else:
+                computerCar.resetGame()
+            manageGame.resetLevel()
+
+    if manageGame.level == 2 and manageGame.currentLevelLayout == 1:
+        manageGame.currentLevelLayout += 1
+        from LevelTwo import startLevel2
+        if multiplayerMode:
+            startLevel2(manageGame, multiplayerMode, [player1Car.carImage, player2Car.carImage])
+        else:
+            startLevel2(manageGame, multiplayerMode, [player1Car.carImage, computerCar.carImage])
+    elif manageGame.level == 3 and manageGame.currentLevelLayout == 2:
+        manageGame.currentLevelLayout += 1
+        from LevelThree import startLevel3
+        if multiplayerMode:
+            startLevel3(manageGame, multiplayerMode, [player1Car.carImage, player2Car.carImage])
+        else:
+            startLevel3(manageGame, multiplayerMode, [player1Car.carImage, computerCar.carImage])
+
 
 def movePlayerCars(player1Car = None, player2Car = None, multiplayerMode = False):
     keys = pygame.key.get_pressed()

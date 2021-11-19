@@ -30,6 +30,7 @@ class ManageGame:
         self.level = level
         self.started = False
         self.levelStartTime = 0
+        self.currentLevelLayout = 1
 
     def nextLevel(self):
         self.level += 1
@@ -47,10 +48,15 @@ class ManageGame:
     def gameFinished(self):
         return self.level > self.LEVELS
 
+    def resetLevel(self):
+        self.started = False
+        self.levelStartTime = 0
+
     def resetGame(self):
         self.level = 1
         self.started = False
         self.levelStartTime = 0
+        self.currentLevelLayout = 1
 
 manageGame = ManageGame() 
 
@@ -83,8 +89,8 @@ while runGame:
     if keys[pygame.K_UP]:
         optionSelectionFlag = False
     if keys[pygame.K_RETURN]:
-        from SelectCar import selectCar
-        selectCar(manageGame, optionSelectionFlag)
+        import SelectCar
+        SelectCar.selectCar(manageGame, optionSelectionFlag)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
