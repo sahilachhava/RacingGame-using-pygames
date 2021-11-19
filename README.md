@@ -4,3 +4,7 @@
 for learning purpose <br /><br />
 
 *It's a racing game which is built on python using pygame library*<br />
+
+**Screenshots**
+
+_Home_<br />
