@@ -1,4 +1,4 @@
-# RacingGame
+# Racing Game using pygames
 
 **Developed in 2021** <br />
 for learning purpose <br /><br />
