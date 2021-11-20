@@ -93,6 +93,7 @@ def handleCollisions(window, font, manageGame, trackMask, finishMask, finishPos,
                 computerCar.resetGame(levelNumber=True)
                 player1Car.resetGame(levelNumber=True)
             else:
+                player1Car.resetGame()
                 computerCar.resetGame()
             manageGame.resetLevel()
 
