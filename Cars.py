@@ -65,7 +65,9 @@ class Player1Car(AbstractCar):
         self.moveCar()
 
     def bounceCar(self):
+        tempVelocity = self.velocity
         self.velocity = -self.velocity
+        self.velocity = (tempVelocity / 1.5)
         self.moveCar()
 
 class Player2Car(AbstractCar):
@@ -78,7 +80,9 @@ class Player2Car(AbstractCar):
         self.moveCar()
 
     def bounceCar(self):
+        tempVelocity = self.velocity
         self.velocity = -self.velocity
+        self.velocity = (tempVelocity / 1.5)
         self.moveCar()
 
 class ComputerCar(AbstractCar):
