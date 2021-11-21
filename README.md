@@ -48,6 +48,8 @@ Note: You need **pip** to Install pygame<br />
    	</p>
 </details>
 
+- - - -
+
 **Screenshots**
 
 _Home_<br />
