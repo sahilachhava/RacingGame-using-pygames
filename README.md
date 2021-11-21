@@ -5,6 +5,11 @@ for learning purpose <br /><br />
 
 *It's a racing game which is built on python using pygame library*<br />
 
+**Requirements**
+
+*You need to Install pygame and python to run this game*
+*Download Python: Markup :  [Named Link](https://www.python.org/downloads/ "Click here")*
+
 **Screenshots**
 
 _Home_<br />
