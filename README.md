@@ -8,7 +8,8 @@ for learning purpose <br /><br />
 **Requirements**
 
 *You need to have python and pygame library to run this game*<br />
-*Download Python: [Download Python](https://www.python.org/downloads/ "Download Python")*
+*Python: [Download Python](https://www.python.org/downloads/ "Download Python")*
+*Pygame: [Install Pygame](https://www.pygame.org/wiki/GettingStarted#Further%20info%20on%20installation "Install Pygame")*
 
 **Screenshots**
 
