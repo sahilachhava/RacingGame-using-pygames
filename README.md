@@ -35,6 +35,18 @@ Note: You need **pip** to Install pygame<br />
    	</p>
 </details>
 
+- - - -
+
+<details>
+   <summary>To Run Game</summary>
+   <p>
+	   	<table>
+		    <tr>
+		        <td>python3 main.py</td>
+		    </tr>
+		</table>
+   	</p>
+</details>
 
 **Screenshots**
 
