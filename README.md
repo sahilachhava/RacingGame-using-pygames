@@ -11,8 +11,7 @@ for learning purpose <br /><br />
 *Python: [Download Python](https://www.python.org/downloads/ "Download Python")*<br />
 *Pygame: [Install Pygame](https://www.pygame.org/wiki/GettingStarted#Further%20info%20on%20installation "Install Pygame")*<br /><br />
 Note: You need pip to Install pygame<br />
-*First download [get-pip.py](https://bootstrap.pypa.io/get-pip.py "get-pip.py") file*<br />
-*First go to downloads folder where get-pip.py file was downloaded then run below command*<br />
+*First download [get-pip.py](https://bootstrap.pypa.io/get-pip.py "get-pip.py") file then locate the folder where get-pip.py file was downloaded and run below command*<br />
 *For windows user: python get-pip.py*<br />
 *For mac user: python3 get-pip.py*<br />
 
