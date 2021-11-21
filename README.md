@@ -7,7 +7,7 @@ for learning purpose <br /><br />
 
 **Requirements**
 
-*You need to have python and pygame library to run this game*
+*You need to have python and pygame library to run this game*<br />
 *Download Python: [Download Python](https://www.python.org/downloads/ "Download Python")*
 
 **Screenshots**
