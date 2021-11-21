@@ -16,11 +16,23 @@ Note: You need **pip** to Install pygame<br />
 *Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py "get-pip.py") file, then locate the folder where get-pip.py file was downloaded and run below command*<br />
 <details>
    <summary>For Windows</summary>
-   <p>>python get-pip.py</p>
+   <p>
+	   	<table>
+		    <tr>
+		        <td>python get-pip.py</td>
+		    </tr>
+		</table>
+   	</p>
 </details>
 <details>
    <summary>For Mac</summary>
-   <p>>python3 get-pip.py</p>
+   <p>
+	   	<table>
+		    <tr>
+		        <td>python3 get-pip.py</td>
+		    </tr>
+		</table>
+   	</p>
 </details>
 
 
